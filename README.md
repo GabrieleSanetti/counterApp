@@ -42,19 +42,19 @@ Scopri l'app quì<br />
 
 ### Counter App Menu
 
-![counter app menu](img/counter-app-menu.jpg)
+![counter app menu](assets/img/counter-app-menu.jpg)
 
 ### Counter App
 
-![counter app](img/counter-app.jpg)
+![counter app](assets/img/counter-app.jpg)
 
 ### Checkbox Disattivata
 
-![counter app checkbox disattivata](img/counter-app-checkbox-disattivato.jpg)
+![counter app checkbox disattivata](assets/img/counter-app-checkbox-disattivato.jpg)
 
 ### Checkbox Spuntata
 
-![counter app checkbox spuntata](img/counter-app-checkbox-spuntato.jpg)
+![counter app checkbox spuntata](assets/img/counter-app-checkbox-spuntato.jpg)
 
 ## 🛠 Installation
 
