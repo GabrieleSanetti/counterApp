@@ -62,7 +62,7 @@ Segui i seguenti step per avviare l'app:
 
 ```bash
 # 1️⃣ Scarica la repository
-git clone https://github.com/yourusername/yourproject.git
+git clone https://github.com/GabrieleSanetti/counterApp.git
 
 # 2️⃣ Spostala nella tua cartella preferita
 cd yourproject

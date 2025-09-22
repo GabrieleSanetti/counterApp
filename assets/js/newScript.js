@@ -30,19 +30,19 @@ const appendElement = function (parente, elemento) {
   return;
 };
 
-const addReplaceClasse = function (
-  elemento,
-  addClasse,
-  replaceClasseOld,
-  replaceClasseNew
-) {
-  if (addClasse) {
-    elemento.classList.add(addClasse);
-  } else {
-    elemento.classList.replace(replaceClasseOld, replaceClasseNew);
-  }
-  return;
-};
+// const addReplaceClasse = function (
+//   elemento,
+//   addClasse,
+//   replaceClasseOld,
+//   replaceClasseNew
+// ) {
+//   if (addClasse) {
+//     elemento.classList.add(addClasse);
+//   } else {
+//     elemento.classList.replace(replaceClasseOld, replaceClasseNew);
+//   }
+//   return;
+// };
 
 function contStart() {
   const main = newElement("main", null, null, null, null, null);
@@ -89,6 +89,7 @@ function contStart() {
     )
   );
 
+  // Logica del menu iniziale con menu che attiva il contatore
   section.addEventListener("click", (event) => {
     if (event.target.dataset.action === "conta") {
       main.remove();
@@ -105,21 +106,36 @@ function startToCount() {
   const section = newElement("section", "contCounter", null, null, null, null);
   appendElement(main, section);
 
+  // Pulsante per ritorno al menu principale
+  const backButton = newElement(
+    "button",
+    "backButton",
+    "data-action",
+    "backButton",
+    "Torna al Menu",
+    null
+  );
+  section.before(backButton);
+
+  // Creazione e aggiunta alla section del pulsante +
   appendElement(
     section,
     newElement("button", "sum", "data-action", "somma", "+", null)
   );
 
+  // Creazione e aggiunta alla section del pulsante -
   appendElement(
     section,
     newElement("button", "dif", "data-action", "sottrazione", "-", null)
   );
 
+  // Funzione per la somma
   function somma() {
     contatore++;
     result.textContent = contatore;
   }
 
+  // Funzione per la sottrazione
   function sottrazione() {
     if (contatore === 0 && checkbox.checked === true) {
       return;
@@ -129,6 +145,7 @@ function startToCount() {
     }
   }
 
+  // Funzione per l'inserimento del testo nello span di attivazione del checkbox
   function activeCheckbox() {
     if (checkbox.checked === true) {
       labelNegative.textContent = "Non puoi scendere sotto lo 0";
@@ -137,6 +154,7 @@ function startToCount() {
     }
   }
 
+  // DIV che mostra il contatore
   const result = newElement(
     "div",
     "result",
@@ -147,6 +165,7 @@ function startToCount() {
   );
   appendElement(section, result);
 
+  // Label per il checkbox
   const label = newElement(
     "label",
     "labelNoBelow0",
@@ -156,6 +175,7 @@ function startToCount() {
     null
   );
 
+  // Checkbox per bloccare il conteggio sotto lo zero
   const checkbox = newElement(
     "input",
     "negative",
@@ -167,6 +187,7 @@ function startToCount() {
   checkbox.setAttribute("data-action", "negative");
   checkbox.type = "checkbox";
 
+  // Controllo che verifica se il contatore è sotto lo zero per disabilitare il checkbox e riabilitarlo se uguale o maggiore a zero
   function disabilitato() {
     if (contatore < 0) {
       checkbox.disabled = true;
@@ -178,6 +199,7 @@ function startToCount() {
   appendElement(section, label);
   appendElement(label, checkbox);
 
+  // Logica del contatore
   main.addEventListener("click", (event) => {
     switch (event.target.dataset.action) {
       case "somma":
@@ -190,7 +212,7 @@ function startToCount() {
         break;
       case "negative":
         activeCheckbox();
-        document.querySelector("span").classList.toggle("labelActiveCheck");
+        document.querySelector("span").classList.toggle("labelActiveCheck"); // Toggle della classe per attivazione e disattivazione della checkbox
         break;
       case "backButton":
         main.remove();
@@ -201,16 +223,6 @@ function startToCount() {
 
   const labelNegative = newElement("span", null, null, null, null, null);
   result.after(labelNegative);
-
-  const backButton = newElement(
-    "button",
-    "backButton",
-    "data-action",
-    "backButton",
-    "Torna al Menu",
-    null
-  );
-  section.before(backButton);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
